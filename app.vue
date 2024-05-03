@@ -1,7 +1,7 @@
 <script setup>
 
-import "@appwrite.io/pink";
-import "@appwrite.io/pink-icons";
+// import "@appwrite.io/pink";
+// import "@appwrite.io/pink-icons";
 
 </script>
 

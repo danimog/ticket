@@ -15,7 +15,7 @@ export const useUserSession = () =>  {
 
     const login = async (email: string, password: string): Promise<void> => {
         const authUser = await account.createEmailPasswordSession(email, password); // Open user session in Appwrite
-        console.log(authUser);
+        // console.log(authUser);
 
         current.value = authUser; // Pass user data to current ref
         navigateTo("/");

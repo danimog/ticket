@@ -28,15 +28,15 @@ const handleRegistration = async (event) => {
 </script>
 
 <template>
-  <div class="u-max-width-650" style="margin: 0 auto;">
-    <section class="card u-margin-32">
-      <h2 class="eyebrow-heading-2">Login/Register</h2>
+  <div class="container mx-auto">
+    <section class="mt-20 flex flex-col justify-center items-center">
+      <h2 class="text-2xl m-10">Login/Register</h2>
       <AuthForm v-if="isSignUp" :handle-submit="handleRegistration" submit-type="Sign Up"></AuthForm>
       <AuthForm v-else :handle-submit="handleLogin" submit-type="Log In"></AuthForm>
-      <button v-if="isSignUp" @click="isSignUp = false" class="u-margin-block-start-16">
+      <button v-if="isSignUp" @click="isSignUp = false" class="">
         Already have an account? Log in
       </button>
-      <button v-else @click="isSignUp = true" class="u-margin-block-start-16">
+      <button v-else @click="isSignUp = true" class="mt-4">
         Don't have an account? Sign up
       </button>
     </section>

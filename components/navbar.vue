@@ -74,7 +74,6 @@ const user = useUserSession();
                 </div>                
             </div>
         </nav>
-
     </header>
 
 </template>

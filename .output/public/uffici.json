@@ -1,0 +1,119 @@
+[
+    {
+        "id": 1,
+        "nome_ufficio": "area demografica",
+        "slug": "demografici",
+        "utenti": [
+            {
+                "nominativo": "Ilenia Galeazzi",
+                "email": "ilenia.galeazzi@comune.monterosso.sp.it"
+            },
+            {
+                "nominativo": "Marta Viviani",
+                "email": "marta.viviani@comune.monterosso.sp.it"
+            },
+            {
+                "nominativo": "Elena Gasparini",
+                "email": "elena.gasparini@comune.monterosso.sp.it"
+            }
+        ]
+    },
+    {
+        "id": 2,
+        "nome_ufficio": "area economica",
+        "slug": "economica",
+        "utenti": [
+            {
+                "nominativo": "Barbara Raso",
+                "email": "barbara.raso@comune.monterosso.sp.it"
+            },
+            {
+                "nominativo": "Daniela Canzio",
+                "email": "daniela.canzio@comune.monterosso.sp.it"
+            },
+            {
+                "nominativo": "Armando Pelliccia",
+                "email": "armando.pelliccia@comune.monterosso.sp.it"
+            }
+        ]
+    },
+    {
+        "id": 3,
+        "nome_ufficio": "area edilizia privata",
+        "slug": "edilizia",
+        "utenti": [
+            {
+                "nominativo": "Caterina Traverso",
+                "email": "caterina.traverso@comune.monterosso.sp.it"
+            },
+            {
+                "nominativo": "Marta Marciasini",
+                "email": "marta.marciasini@comune.monterosso.sp.it"
+            }
+        ]
+    },
+    {
+        "id": 4,
+        "nome_ufficio": "area attivita produttive",
+        "slug": "attivitaproduttive",
+        "utenti": [
+            {
+                "nominativo": "Marina Ajtano",
+                "email": "marina.ajtano@comune.monterosso.sp.it"
+            },
+            {
+                "nominativo": "Emilia Baldassarre",
+                "email": "emilia.baldassarre@comune.monterosso.sp.it"
+            }
+        ]
+    },
+    {
+        "id": 5,
+        "nome_ufficio": "area lavori pubblici",
+        "slug": "lavoripubblici",
+        "utenti": [
+            {
+                "nominativo": "Massimiliano Martina",
+                "email": "massimiliano.martina@comune.monterosso.sp.it"
+            },
+            {
+                "nominativo": "Simona Benedetti",
+                "email": "simona.benedetti@comune.monterosso.sp.it"
+            }
+        ]
+    },
+    {
+        "id": 6,
+        "nome_ufficio": "polizia locale",
+        "slug": "polizialocale",
+        "utenti": [
+            {
+                "nominativo": "Luigina Bettoni",
+                "email": "luigina.bettoni@comune.monterosso.sp.it"
+            },
+            {
+                "nominativo": "Igor Cartura",
+                "email": "igor.cartura@comune.monterosso.sp.it"
+            },
+            {
+                "nominativo": "Martina Di Mario",
+                "email": "martina.dimario@comune.monterosso.sp.it"
+            },
+            {
+                "nominativo": "Sara Zoppi",
+                "email": "sara.zoppi@comune.monterosso.sp.it"
+            }
+        ]
+    },
+    {
+        "id": 7,
+        "nome_ufficio": "staff sindaco",
+        "slug": "staffsindaco",
+        "utenti": [
+            {
+                "nominativo": "Assia Jouat",
+                "email": "assia.jouat@comune.monterosso.sp.it"
+            }
+        ]
+    }
+]

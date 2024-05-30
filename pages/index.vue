@@ -11,6 +11,6 @@ else window.location.replace('/login')
     <div class="container mx-auto mt-20 mb-20">
         Monterosso Ticket
         <!-- <p>{{ user.current }}</p> -->
-        <p>{{ user }}</p>
+        <!-- <p>{{ user }}</p> -->
     </div>
 </template>

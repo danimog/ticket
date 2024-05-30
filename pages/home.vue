@@ -288,7 +288,7 @@ onMounted(() => {
             <div class="">
                 <h3 class="text-2xl text-center my-20">
                     Vai alla <a class="underline hover:no-underline" href="/login">pagina di login</a> per vedere e
-                    inserire nuovi ticket!
+                    inserire nuovi ticket!!
                 </h3>
             </div>
         </div>

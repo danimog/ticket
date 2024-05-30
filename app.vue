@@ -11,5 +11,6 @@
       <Navbar />
       <NuxtPage />
     </NuxtLayout>
+    <Footer />
   </div>
 </template>

@@ -4,6 +4,10 @@
             <h1 class="text-4xl text-center">Inserisci ticket
                 <Icon name="material-symbols-light:edit-outline" size="1.5em" />
             </h1>
+            <p class="my-5 text-center">
+                <em>{{ utente }}</em><br>
+                {{ ufficio }}
+            </p>
             <p class="my-10 text-center text-2xl text-red-700">{{ ticket_ok }}</p>
 
             <div v-if="ticket_insert_ok" class="w-16 md:w-32 lg:w-48">
@@ -33,7 +37,7 @@
                             </div>
                         </div>
 
-                        <div class="mt-5">
+                        <!-- <div class="mt-5">
                             <label for="email"
                                 class="inline-block align-middle text-xl font-medium text-gray-900 text-right">Contatto</label>
                         </div>
@@ -43,9 +47,9 @@
                                     class="block flex-1 border-0 bg-transparent text-gray-900"
                                     placeholder="nome o indirizzo @email" />
                             </div>
-                        </div>
+                        </div> -->
 
-                        <div class="mt-5">
+                        <!-- <div class="mt-5">
                             <label for="ufficio"
                                 class="inline-block align-middle text-xl font-medium text-gray-900 text-right">Ufficio</label>
                         </div>
@@ -53,11 +57,28 @@
                             <div class="p-2 flex rounded-md shadow-sm ring-1 ring-inset ring-gray-300 sm:max-w-md">
                                 <select name="ufficio" id="ufficio" v-model="ufficio" required
                                     class="block flex-1 border-0 bg-transparent text-gray-900"
-                                    placeholder="seleziona ufficio">
-                                    <option v-for="u in uffici" :value="u">{{ u }}</option>
+                                    placeholder="seleziona ufficio"
+                                    @change="cambioSelect($event)"
+                                    >
+                                    <option v-for="u in uffici" :value="u.id">{{ u.nome_ufficio }}</option>
                                 </select>
                             </div>
                         </div>
+                        
+                        <div class="mt-5">
+                            <label for="utenti"
+                                class="inline-block align-middle text-xl font-medium text-gray-900 text-right">Utente</label>
+                        </div>
+                        <div class="col-span-2 mt-5">
+                            <div class="p-2 flex rounded-md shadow-sm ring-1 ring-inset ring-gray-300 sm:max-w-md">
+                                <select name="utente" id="utente" v-model="utente" required
+                                    class="block flex-1 border-0 bg-transparent text-gray-900"
+                                    placeholder="seleziona utente"
+                                    >
+                                    <option v-for="ut in selectUtenti" :value="ut">{{ ut }}</option>
+                                </select>
+                            </div>
+                        </div> -->
 
                         <div class="mt-5">
                             <label for="urgente"
@@ -86,7 +107,6 @@
                     </div>
                 </div>
             </form>
-            <!-- {{ results }} -->
         </div>
     </div>
 </template>
@@ -94,13 +114,28 @@
 <script setup>
 import { ID } from 'appwrite';
 import { account, database } from "../appwrite";
+const { data:utenti } = await useFetch('uffici.json')
 
 const user = useUserSession();
+// console.log(user)
+const utente = ref();
+const ufficio = ref();
+const utenteLoggato = await account.get()
+const result = await account.getPrefs();
+for (const property in result) {
+    ufficio.value = result[property];
+    // console.log(`${property}: ${result[property]}`);
+}
+// console.log(user.current.value)
+utente.value = user.current.value.providerUid;
 
 const database_id = import.meta.env.VITE_DATABASE_ID;
 const collection_id = import.meta.env.VITE_COLLECTION_ID;
 
-const uffici = ['Protocollo', 'Ufficio Tecnico', 'Polizia locale', 'Ragioneria'];
+const selectUffici = ref();
+const selectUtenti = ref([]);
+
+const uffici = ref([]);
 
 const tickets = ref([]);
 const input = reactive({
@@ -114,12 +149,24 @@ const results = ref();
 const email = ref("");
 const problem = ref("");
 const urgente = ref(false);
-const ufficio = ref("");
+// const ufficio = ref("");
+
+function cambioSelect(event) {
+    selectUtenti.value = []
+    let id = event.target.value;
+    if (uffici.value[id-1].utenti) {
+        let user = uffici.value[id-1].utenti;
+        for (let i=0; i<user.length; i++) {
+            selectUtenti.value.push(user[i].nominativo)
+        }
+    }
+    
+}
 
 function invia() {
     results.value = {
         testo_tkt: problem.value,
-        contatto_tkt: email.value,
+        contatto_tkt: utente.value,
         urgente_tkt: urgente.value,
         ufficio_tkt: ufficio.value
     }
@@ -147,7 +194,14 @@ const dbinsert = (data) =>
         data
     );
 
+onMounted(async () => {
 
+    for (let i=0; i<utenti.value.length; i++){
+        let newVal = utenti.value[i];
+        uffici.value.push(newVal);
+    }
+    // console.log(uffici.value)
+});
 
 </script>
 
